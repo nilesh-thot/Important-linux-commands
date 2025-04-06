@@ -1,0 +1,4 @@
+1)in expr command , Make sure you leave the gap bw operation i.e..
+  expr 5 + 3
+2)In assigning variable no gap should be there
+  a=$b --> ✔  a =$b --> ✖

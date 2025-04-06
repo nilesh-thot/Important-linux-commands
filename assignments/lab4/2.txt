@@ -1,0 +1,5 @@
+# 6. Write a Bash script that prompts the user to provide a filename and a word to search for.
+# The script should first check if the file exists and then count the number of lines in the
+# . If the file contains more than n lines, it should search for the word in the file and
+ the line numbers where the word appears. If the file contains n or fewer lines, the
+# script should display a message indicating that the search will not be performed.

@@ -1,0 +1,3 @@
+Alice,30,Developer
+Bob,45,Manager
+Charlie,28,Analyst

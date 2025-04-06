@@ -1,0 +1,233 @@
+*************************Q-1***************************
+#!/bin/bash
+##Q-1:
+while true;do
+     echo -n "Enter str1:"
+     read str1
+     echo -n "Enter str2:"
+     read str2
+     if [ $(expr length $str1) -ge 25 ] && [ $(expr length $str2) -ge 10 ];then
+         break
+     fi
+     echo "Need string 1 of length >25 and string 2 of length >10Please re-enter"
+     ##Finding substring
+     is_sub=1
+     start =  $(expr index $str1 $str2)
+     if [ $start -ne 0 ]  ;then
+         echo "str2 is substring of str1"
+         #Checking str2 is a palindrome or not
+         length=$(expr length $str2)
+         i=0
+         flag=0
+         while [ $i -lt $length ];do
+              if [ ${str2:$i:1} != ${str2:$((n-1-i)):1}  ];then
+                 flag=1;break
+              fi
+              i=$((i+1))
+         done
+         if [ flag -eq 0 ];then
+             echo "Given str2 is palindrome"
+         str_new=''
+         i=0
+         while [ $i -lt $length ];do
+               ch=${str2:$i:1}
+               case $ch in
+               'a') str_new="$str_new""A";;
+               'e') str_new="$str_new""E";;
+               'i') str_new="$str_new""I";;
+               'o') str_new="$str_new""O";;
+               'u') str_new="$str_new""U";;
+               *) str_new="$str_new""$ch";;
+               esac  
+               i=$((i+1))
+         done
+         echo "Changed string is $str_new"
+             
+         else 
+             echo "Given str2 is not a palindrome"
+         str_new=''
+         i=0
+         while [ $i -lt $length ];do
+               ch=${str2:$i:1}
+               case $ch in
+               'B') str_new="$str_new""b";;
+               'C') str_new="$str_new""c";;
+               'D') str_new="$str_new""d";;
+               'F') str_new="$str_new""f";;
+               'G') str_new="$str_new""g";;
+               'H') str_new="$str_new""h";;
+               'J') str_new="$str_new""j";;
+               'K') str_new="$str_new""k";;
+               'L') str_new="$str_new""l";;
+               'M') str_new="$str_new""m";;
+               'N') str_new="$str_new""n";;
+               'O') str_new="$str_new""o";;
+               'P') str_new="$str_new""p";;
+               'Q') str_new="$str_new""q";;
+               'R') str_new="$str_new""r";;
+               'S') str_new="$str_new""s";;
+               'T') str_new="$str_new""t";;
+               'U') str_new="$str_new""u";;
+               'V') str_new="$str_new""v";;
+               'W') str_new="$str_new""w";;
+               'X') str_new="$str_new""x";;
+               'Y') str_new="$str_new""y";;
+               'Z') str_new="$str_new""z";;
+               *) str_new="$str_new""$ch";;
+               esac  
+               i=$((i+1))
+         done
+         echo "Changed string is $str_new"   
+             
+         fi
+     else 
+         concate=$str1$str2
+         echo "The string concatenated is $concate"
+         exit
+     fi     
+done
+
+
+*************************Q-2***************************
+#!/bin/bash
+while true;do
+echo -n "Enter the case:"
+read _case
+case $_case in 
+##Check the amstrong number
+1)
+echo -n 'Enter n:'
+read n
+#Creating duplicate number for finding digits
+n1=$((n))
+no_of_digits=0
+while [ $n1 -ne 0 ];do
+     n1=$((n1/10))
+     no_of_digits=$((no_of_digits+1))
+done
+#For checking the sum
+n1=$((n))
+sum=0
+while [ $n1 -ne 0 ];do
+    num=$((n1%10))
+    n1=$((n1/10))
+    #For getting power function
+    _i=$((no_of_digits))
+    num_to_be_add=1
+    while [ $_i -gt 0 ];do
+        num_to_be_add=$((num_to_be_add*num))
+        _i=$((_i-1))
+    done
+    sum=$((sum+num_to_be_add))
+done
+[ $sum -eq $n ] &&  echo 'Number is amstrong number' || echo 'Not an amstrong number';;
+## Factorial calculation
+2)
+echo -n 'Enter n:'
+read n
+prod=1
+while [ $n -gt 0 ];do
+     prod=$((prod*n))
+     n=$((n-1))
+done
+echo "Factorial of the number is $prod";;
+##Checking prime number
+3)
+echo -n 'Enter the number:';read n
+flag=0
+i=$((n-1))
+while [ $i -gt 1 ] && [ $flag -eq 0 ];do
+   if [ $((n%i)) -eq 0 ];then
+       flag=1
+   fi
+   i=$((i-1))
+done
+if [ $flag -eq 0 ];then
+     echo "Given number is prime number"
+else 
+   echo "Given number is not prime number"    
+fi;;
+-1)exit;;
+*)echo 'Chosen wrong option enter valid option';;
+esac
+done
+*************************Q-3***************************
+#!/bin/bash
+echo -n 'Enter the starting number of range:'
+read n1
+echo -n 'Enter the ending number of the range:'
+read n2
+sum=0
+##Note: to check whether even or idd i used to divide the number by 2 and multiplied by 2 which resulted in even number just less than or equal to that number 
+n1_even=$((n1/2*2))
+if [ $((n1-n1_even)) -eq 0 ];then
+    i=$((n1+1))
+else 
+    i=$((n1+2))
+fi
+while [ $i -lt $n2 ];do
+     sum=$((sum+i*i))
+     i=$((i+2))
+done
+echo "The value of the result is $sum"
+
+*************************Q-4***************************
+#!/bin/bash
+while true;do
+   echo "Enter the case"
+   echo "1)Addition   2)Subtraction  3)Multiplication   4)Division 5)Exit"
+   read _case;
+   if [ $_case -ne 5 ];then
+      echo 'Enter value of a:';read a;
+      echo 'Enter value of b:';read b;
+   fi
+   case $_case in
+       1)echo "Adding $a and $b gives $((a+b))";;
+       2)echo "Subtracting $a and $b gives $((a-b))";;
+       3)echo "Multiplying $a and $b gives $((a*b))";;
+       4)if [ $b -eq 0 ];then 
+              echo "value of b should not be equal to 0.Please enter the valid number ";
+         else 
+             echo  "Dividing $a and $b gives $((a/b))" 
+         fi;;
+       5)exit;;
+       *)echo 'Enter the valid option';;
+   esac
+done
+              
+
+*************************Q-5***************************
+#!/bin/bash
+
+echo -n "Enter the value of n:"
+read n
+n1=$((n))
+while [ $n1 -gt 0 ];do
+    i=1
+    while [ $n1 -ge $i ];do
+       echo -n $i
+       i=$((i+1))
+    done
+    echo
+    n1=$((n1-1))
+done
+*************************Q-6***************************
+#!/bin/bash
+echo "Enter the case"
+echo "1)List files   2)Counting no of words  3)Searching for a word   4)Exit"
+read _case;
+case $_case in
+       1)
+         echo 'Enter the path';read path
+         (ls $path);;
+       2)
+         echo 'Enter the file name';read file_name
+         no_of_words=$(cat $file_name|wc -w); 
+         echo "Total no of words in given file are $no_of_words";;
+       3)
+         echo 'Enter the file name';read file_name
+         echo ''Enter the word to be searched;read word
+         echo $(cat $file_name|grep $word);;
+       4)exit ;;
+       *)echo 'Enter the valid option';;
+esac
