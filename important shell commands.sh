@@ -180,7 +180,7 @@ sed '1,3d' input.txt # delete lines 1 to 3 make sure you understood
 sed '/pattern/d' input.txt # delete lines containing pattern
 sed '/pattern/i\insert this line' input.txt # Inserts the text before the line containing pattern
 sed '/pattern/a\insert this line after' # Inserts the text after r=the line containing pattern
-sed '5$d' input.txt # delete line 5
+sed '5,$d' input.txt # delete line 5 to end
 sed '^#/d' input.txt # delete lines starting with # here ^ represents the start
 sed -n 's/pattern/replacement/p' # Shows only the lines containing the pattern
 
